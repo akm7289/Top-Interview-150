@@ -31,6 +31,26 @@ class Solution(object):
         """
         _,tree=self.modifiedDFS( root, 0)
         return self.findkthElement(tree,k)
+
+    def kthSmallest(self, root, k):
+        """
+        :type root: TreeNode
+        :type k: int
+        :rtype: int
+        """
+        stack=[]
+        current=root
+        while current or len(stack)>0:
+            while current:
+                stack.append(current)
+                current=current.left
+            current=stack.pop()
+            k=k-1
+            if k==0:
+                return current.val
+            current=current.right
+        return 0
+
 if __name__=='__main__':
     root = TreeNode(5)
     root.left = TreeNode(3)
