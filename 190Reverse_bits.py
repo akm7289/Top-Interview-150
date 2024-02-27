@@ -11,7 +11,8 @@ class Solution:
         lst.extend([0] * (32 - len(lst)))
 
         result = 0
+        lst = lst[::-1]
         for i in range(len(lst)):
-            result = (result << 1) | lst[i]
+            result = result + lst[i] * (2 ** i)
 
         return result
