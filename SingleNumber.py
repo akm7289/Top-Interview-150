@@ -14,4 +14,9 @@ class Solution(object):
             if not value:
                 return key
 
+        #or
+        result = 0
+        for num in nums:
+            result = result ^ num
+
 
